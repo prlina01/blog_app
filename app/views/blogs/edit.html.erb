@@ -1,2 +1,8 @@
-<h1>Blogs#edit</h1>
-<p>Find me in app/views/blogs/edit.html.erb</p>
+<div class="container">
+  
+    <%= form_with(model: @blog, local: true) do |f| %>
+        <%= f.text_field :title, placeholder: "title"  %>
+        <%= f.text_area :body, cols: 5, rows: 3, placeholder: "body" %>
+        <%= submit_tag "Submit!" %>
+    <% end %>
+</div>
