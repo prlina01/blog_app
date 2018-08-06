@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <% @blogs.each do |blog| %>
+      <div class="post-preview">
+        <h2 class="post-title">
+          <%= link_to blog.title , blog_path(blog) %>
+        </h2>
+        <h3 class="post-subtitle">
+          <%= blog.body.split(".").first %>
+        </h3>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+  </div>
+</div>
