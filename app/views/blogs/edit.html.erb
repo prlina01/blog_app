@@ -1,8 +1,5 @@
-<div class="container">
-  
-    <%= form_with(model: @blog, local: true) do |f| %>
-        <%= f.text_field :title, placeholder: "title"  %>
-        <%= f.text_area :body, cols: 5, rows: 3, placeholder: "body" %>
-        <%= submit_tag "Submit!" %>
-    <% end %>
+<div class="container text-center">
+  <div class="row">
+    <%= render 'form' %>
+  </div>
 </div>

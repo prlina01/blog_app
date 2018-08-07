@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   
   layout 'blog'
-  before_action :find_specific, except: :index
+  before_action :find_specific, except: [:index, :new, :create]
   access all: [:index,:show], reader: [:index, :show], admin: :all
 
   def index
@@ -12,11 +12,16 @@ class BlogsController < ApplicationController
   end
 
   def new
-    @blog = Blog.new()
+    @blog = Blog.new
   end
 
   def create
     @blog = Blog.new(blog_params)
+    if @blog.save
+      redirect_to blog_path(@blog)
+    else
+      render 'new'
+    end
   end
 
   def edit
