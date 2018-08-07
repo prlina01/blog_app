@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
+  
   layout 'blog'
   before_action :find_specific, except: :index
+  access all: [:index,:show], reader: [:index, :show], admin: :all
 
   def index
     @blogs = Blog.order('created_at DESC')
