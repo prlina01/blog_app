@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_07_045758) do
+ActiveRecord::Schema.define(version: 2018_08_07_145754) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 2018_08_07_045758) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "topic_id"
+    t.bigint "user_id"
     t.index ["topic_id"], name: "index_blogs_on_topic_id"
+    t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,5 +58,6 @@ ActiveRecord::Schema.define(version: 2018_08_07_045758) do
   end
 
   add_foreign_key "blogs", "topics"
+  add_foreign_key "blogs", "users"
   add_foreign_key "comments", "blogs"
 end

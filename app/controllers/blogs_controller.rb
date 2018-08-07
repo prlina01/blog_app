@@ -48,4 +48,5 @@ class BlogsController < ApplicationController
     def find_specific
       @blog = Blog.find(params[:id])
     end
+
 end

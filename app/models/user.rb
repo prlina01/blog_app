@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
+  has_many :blogs
   before_create :default_role
 
   validates :first_name, presence: true
@@ -20,4 +20,6 @@ class User < ApplicationRecord
   def default_role
     self.roles = 'reader'
   end
+  
 end
+
