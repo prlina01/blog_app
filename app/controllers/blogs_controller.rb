@@ -2,17 +2,24 @@ class BlogsController < ApplicationController
   
   layout 'blog'
   before_action :find_specific, except: [:index, :new, :create]
+  # after_action :head_title, except: [:destroy]
   access all: [:index,:show], reader: [:index, :show], admin: :all
 
   def index
     @blogs = Blog.order('created_at DESC')
+    @head_title = "Prlina's Blog"
+    @head_subtitle = "Petar's very own personal blog!"
   end
 
   def show
+    @head_title = @blog.title
+    @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name
   end
 
   def new
     @blog = Blog.new
+    @head_title = "New post? Fantastic!"
+    @head_subtitle = "Feel free to write anything you can imagine"
   end
 
   def create
@@ -25,6 +32,8 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    @head_title = @blog.title
+    @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name
   end
 
   def update
@@ -48,5 +57,12 @@ class BlogsController < ApplicationController
     def find_specific
       @blog = Blog.find(params[:id])
     end
+
+    # def head_title
+    #   if @blogs
+    #     @title = "Prlina's Blog"
+    #   elsif @blog
+    #     @title = @blog.title || "New post? Fantastic!"
+    # end
 
 end

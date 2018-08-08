@@ -5,25 +5,10 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
           <h1>
-            <% if @blog %>
-              <%= @blog.title %>
-            <% elsif @blogs %>
-              Prlina Blog
-            <% else %>
-              Topics
-            <% end %>
+            <%= @head_title %>
           </h1>
           <span class="subheading">
-            <% if @blogs %>
-              Petar's very own personal blog!
-            <% elsif @blog  %>
-              Written By:
-              <%= @blog.user.first_name %>
-            <% elsif @topic || @topics %>
-              Hundreds of topics to choose from!
-            <% else %>
-              Creation shall begin!
-            <% end %>
+            <%= @head_subtitle %>
           </span>
         </div>
       </div>
