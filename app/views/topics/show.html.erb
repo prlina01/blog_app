@@ -1,0 +1,11 @@
+<% @topic.blogs.each do |t| %>
+  <div class="post-preview text-center">
+    <h2 class="post-title">
+      <%= t.title %>
+    </h2>
+      <p class="post-meta">Posted by
+      <%= t.user.first_name %>
+     </p>
+  </div>
+  <hr>
+<% end %>

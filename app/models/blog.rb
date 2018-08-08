@@ -1,9 +1,11 @@
 class Blog < ApplicationRecord
   
   belongs_to :topic, required: false
+  validates_presence_of :topic_id
+
   has_many :comments
 
-  validates_presence_of :body, :title, :user
+  validates_presence_of :body, :title
 
   belongs_to :user, required: false
 

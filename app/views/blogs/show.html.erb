@@ -1,3 +1,4 @@
 <article>
+  <%= link_to  "delete", blog_path(@blog), method: :delete, class: 'btn btn-white' %>
   <%= @blog.body %>
 </article>
