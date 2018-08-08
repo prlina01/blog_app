@@ -10,17 +10,19 @@
             <% elsif @blogs %>
               Prlina Blog
             <% else %>
-              Blog Topics
+              Topics
             <% end %>
           </h1>
           <span class="subheading">
             <% if @blogs %>
               Petar's very own personal blog!
-            <% elsif @blog %>
+            <% elsif @blog  %>
               Written By:
               <%= @blog.user.first_name %>
-            <% else %>
+            <% elsif @topic || @topics %>
               Hundreds of topics to choose from!
+            <% else %>
+              Creation shall begin!
             <% end %>
           </span>
         </div>

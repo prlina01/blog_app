@@ -16,7 +16,13 @@
   <body>
     <%= render 'blogs/nav' %>
     <%= render 'blogs/masthead' %>
-    <%= yield %>
-    <%= render 'blogs/footer' %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <%= yield %>
+          <%= render 'blogs/footer' %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
