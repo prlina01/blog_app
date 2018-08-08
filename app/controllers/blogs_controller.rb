@@ -14,7 +14,7 @@ class BlogsController < ApplicationController
   def show
     @head_title = @blog.title
     if @blog.user
-      @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name
+      @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name + "<p>Name</p>#{.html_safe}" + @blog.topic.title 
     end
   end
 

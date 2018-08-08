@@ -1,4 +1,4 @@
-<article>
-  <%= link_to  "delete", blog_path(@blog), method: :delete, class: 'btn btn-white' %>
+<article class="post-preview">
+  <p class="post-meta"> Topic: <%= @blog.topic.title %> </p>
   <%= @blog.body %>
 </article>
