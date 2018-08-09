@@ -1,4 +1,9 @@
 <article class="post-preview">
-  <p class="post-meta"> Topic: <%= @blog.topic.title %> </p>
+  <p class="post-meta"> Topic: 
+    <span class="btn btn-white"><%= link_to @blog.topic.title, topic_path(@blog.topic) %></span>
+  </p>
   <%= @blog.body %>
+  <%= render 'comments/form'%>
+  <%= render @blog.comments %>
+
 </article>

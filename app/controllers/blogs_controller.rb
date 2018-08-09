@@ -1,4 +1,4 @@
-class BlogsController < ApplicationController
+  class BlogsController < ApplicationController
   
   layout 'blog'
   before_action :find_specific, except: [:index, :new, :create]
@@ -12,9 +12,12 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @counter = 0
+    @blog = Blog.includes(:comments).find(params[:id])
+    @comment = Comment.new()
     @head_title = @blog.title
     if @blog.user
-      @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name + "<p>Name</p>#{.html_safe}" + @blog.topic.title 
+      @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name
     end
   end
 
