@@ -7,6 +7,7 @@
 
   def index
     @blogs = Blog.order('created_at DESC')
+    @blogs_published = Blog.hide_drafts
     @head_title = "Prlina's Blog"
     @head_subtitle = "Petar's very own personal blog!"
   end
@@ -51,6 +52,16 @@
 
   def destroy
     @blog.destroy
+    redirect_to blogs_path
+  end
+
+  def toggle_status
+    if @blog.published?
+      @blog.draft!
+    elsif @blog.draft?
+      @blog.published!
+    end
+    redirect_to blogs_path
   end
 
   private

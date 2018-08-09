@@ -1,0 +1,15 @@
+<div class="post-preview text-center">
+    <h2 class="post-title">
+      <%= link_to blog.title , blog_path(blog) %>
+    </h2>
+      <p class="post-meta">Posted by
+      <%= blog.user.first_name %>
+      <%= distance_of_time_in_words blog.created_at, Time.now %> ago
+      <% if logged_in?(:admin) %>
+        <%= link_to "edit", edit_blog_path(blog), class: 'btn btn-white' %>
+        <%= link_to  "delete", blog_path(blog), method: :delete, class: 'btn btn-white desno', data: {confirm: "Are you Sure"} %>
+        <%= link_to blog.status, toggle_status_blog_path(blog) %>
+      <% end %>
+     </p>
+  </div>
+  <hr>

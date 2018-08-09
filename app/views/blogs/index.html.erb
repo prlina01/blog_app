@@ -1,15 +1,6 @@
-  <%= link_to "New Post", new_blog_path, class: 'btn btn-white' %>
-<% @blogs.each do |blog| %>
-  <div class="post-preview text-center">
-    <h2 class="post-title">
-      <%= link_to blog.title , blog_path(blog) %>
-    </h2>
-      <p class="post-meta">Posted by
-      <%= blog.user.first_name %>
-      <%= distance_of_time_in_words blog.created_at, Time.now %> ago
-      <%= link_to "edit", edit_blog_path(blog), class: 'btn btn-white' %> 
-      <%= link_to  "delete", blog_path(blog), method: :delete, class: 'btn btn-white desno', data: {confirm: "Are you Sure"} %>
-     </p>
-  </div>
-  <hr>
+<%= link_to "New Post", new_blog_path, class: 'btn btn-white' if logged_in?(:admin) %>
+<% if logged_in?(:admin) %>
+  <%= render @blogs %>
+<% else %>
+  <%= render @blogs_published %>
 <% end %>
