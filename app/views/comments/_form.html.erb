@@ -1,8 +1,8 @@
+<br><hr><br>
 <% if current_user %>
   <%= form_with(model: [@blog,@blog.comments.build]) do |f| %>
     <div class="form-group">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: 'form-control' %>
+      <%= f.text_area :body, class: 'form-control', placeholder: 'Comment' %>
     </div>
     <%= f.submit "Submit", class: 'btn btn-primary'%>
   <% end %>

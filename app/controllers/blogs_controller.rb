@@ -1,7 +1,7 @@
   class BlogsController < ApplicationController
   
   layout 'blog'
-  before_action :find_specific, except: [:index, :new, :create]
+  before_action :find_specific, except: [:index, :new, :create, :contact]
   # after_action :head_title, except: [:destroy]
   access all: [:index,:show], reader: [:index, :show], admin: :all
 
@@ -62,6 +62,10 @@
       @blog.published!
     end
     redirect_to blogs_path
+  end
+
+  def contact
+    
   end
 
   private

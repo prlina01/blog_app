@@ -9,5 +9,7 @@ Rails.application.routes.draw do
       get :toggle_status
     end
   end
-  
+  get 'contact_me', to: 'messages#new', as: 'new_message'
+  post 'contact_me', to: 'messages#create', as: 'create_message'
+
 end
