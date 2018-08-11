@@ -6,7 +6,7 @@
   access all: [:index,:show], reader: [:index, :show], admin: :all
 
   def index
-    @blogs = Blog.order('created_at DESC')
+    @blogs = Blog.order('created_at ASC')
     @blogs_published = Blog.hide_drafts
     @head_title = "Prlina's Blog"
     @head_subtitle = "Petar's very own personal blog!"
@@ -15,7 +15,7 @@
   def show
     @counter = 0
     @blog = Blog.includes(:comments).find(params[:id])
-    @comment = Comment.new()
+    @comment = Comment.new
     @head_title = @blog.title
     if @blog.user
       @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name
@@ -30,6 +30,7 @@
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
     if @blog.save
       redirect_to blog_path(@blog)
     else
@@ -71,7 +72,7 @@
   private
     
     def blog_params
-      params.require(:blog).permit(:body, :title, :topic_id)
+      params.require(:blog).permit(:body, :title, :topic_id, :user_id)
     end
 
     def find_specific

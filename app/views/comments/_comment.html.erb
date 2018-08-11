@@ -1,3 +1,4 @@
+<% if comment.id %>
 <div class="comment-card">
 <div class="card">
   <div class="card-block">
@@ -8,7 +9,7 @@
         </div>
         <div class="post-preview">
           <div class="post-meta">
-            Comment posted by <%#= comment.user.first_name %> <%#= distance_of_time_in_words comment.created_at, Time.now %> ago
+            Comment posted by <%= comment.user.first_name %> <%= distance_of_time_in_words comment.created_at, Time.now %> ago
           </div>
           <div><%= link_to 'Delete', [comment.blog, comment], method: :delete, data: {confirm: 'Are you sure?'}  %></div>
         </div>
@@ -17,3 +18,4 @@
   </div>
 </div> 
 </div>
+<% end %>

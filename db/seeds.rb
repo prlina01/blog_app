@@ -13,4 +13,15 @@
 
             Sed at arcu est. Duis vulputate magna eget tristique ullamcorper. Proin dignissim magna in libero suscipit, id rhoncus purus egestas. Integer eget lectus eros. Quisque id efficitur massa, ut euismod est. In eu laoreet purus, a volutpat lectus. Nunc accumsan dolor tortor, sit amet scelerisque arcu blandit nec. Suspendisse a risus vitae leo varius volutpat. In sit amet lorem purus. Aliquam faucibus odio eu nibh blandit, id tincidunt enim efficitur. Curabitur eget tincidunt nunc, ut viverra felis. Aliquam id ante gravida, scelerisque diam ut, tincidunt lacus. "
     )
+
+  Topic.create!(
+    title:'tech')
+  Topic.create!(
+    title: 'entertainment')
+  Topic.create!(
+    title: 'news')
+  Topic.create!(
+    title: 'sports')
+  Topic.create!(
+    title: 'future')
 end

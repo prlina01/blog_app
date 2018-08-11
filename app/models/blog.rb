@@ -13,7 +13,9 @@ class Blog < ApplicationRecord
 
   scope :hide_drafts, lambda { Blog.where(["status = ?", 1])}
 
-  def set_user
-    self.user_id = current_user.id
-  end
+  # before_create :set_user
+
+  # def set_user
+  #   self.user_id = User.last.id
+  # end
 end
