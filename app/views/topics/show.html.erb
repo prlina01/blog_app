@@ -1,12 +1,17 @@
-<% @topic.blogs.each do |t| %>
-  <div class="post-preview text-center">
-    <h2 class="post-title">
-      <%= link_to t.title, blog_path(t) %>
-    </h2>
-      <p class="post-meta">Posted by
-      <%= t.user.first_name %>
-      <%= distance_of_time_in_words t.created_at, Time.now %> ago
-     </p>
-  </div>
-  <hr>
+<div class="text-center">
+<% if @topic.blogs.blank? %>
+  <h2>No blogs in this topic!</h2>
+</div>
+  <% else @topic.blogs.each do |t| %>
+    <div class="post-preview text-center">
+      <h2 class="post-title">
+        <%= link_to t.title, blog_path(t) %>
+      </h2>
+        <p class="post-meta">Posted by
+        <%= t.user.first_name %>
+        <%= distance_of_time_in_words t.created_at, Time.now %> ago
+       </p>
+    </div>
+    <hr>
+  <% end %>
 <% end %>

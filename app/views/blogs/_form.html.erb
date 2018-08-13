@@ -1,5 +1,6 @@
 <div class="col-3">
   <%= form_with(model: @blog, local: true) do |f| %>
+  <p class="alert alert-secondary"><%= @blog.errors.full_messages.join(', ') %></p>
   <div class="form-group">
     <%= f.label :title, "Title" %>
     <%= f.text_field :title, placeholder: "title", class: 'form-control'  %>

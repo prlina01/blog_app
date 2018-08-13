@@ -10,6 +10,7 @@
     @blogs_published = Blog.hide_drafts
     @head_title = "Prlina's Blog"
     @head_subtitle = "Petar's very own personal blog!"
+    @masthead_picture = "bg_index"
   end
 
   def show
@@ -20,12 +21,14 @@
     if @blog.user
       @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name
     end
+    @masthead_picture = "bg_show"
   end
 
   def new
     @blog = Blog.new
     @head_title = "New post? Fantastic!"
     @head_subtitle = "Feel free to write anything you can imagine"
+    @masthead_picture =  "bg_index"
   end
 
   def create
@@ -41,6 +44,7 @@
   def edit
     @head_title = @blog.title
     @head_subtitle = "Written by " + @blog.user.first_name + " " + @blog.user.last_name
+    @masthead_picture = "bg_show"
   end
 
   def update
@@ -49,6 +53,7 @@
     else
       render 'edit'
     end
+    
   end
 
   def destroy
@@ -65,9 +70,6 @@
     redirect_to blogs_path
   end
 
-  def contact
-    
-  end
 
   private
     

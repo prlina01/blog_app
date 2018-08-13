@@ -176,7 +176,7 @@ img::-moz-selection {
 header.masthead {
   margin-bottom: 50px;
   background: no-repeat center center;
-  background-color: #868e96;
+  // background-color: #868e96;
   background-attachment: scroll;
   position: relative;
   -webkit-background-size: cover;
@@ -426,6 +426,17 @@ footer .copyright {
   padding:15px;
   
 }
+
+#bg_index {
+  background: image-url('home-bg.jpg') no-repeat;
+  background-size: cover;
+}
+
+#bg_show {
+  background: image-url('post-bg.jpg') no-repeat;
+  background-size: cover;
+}
+
 
 
 
