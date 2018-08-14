@@ -2,7 +2,7 @@
   <p class="post-meta"> Topic: 
     <span class="btn btn-white"><%= link_to @blog.topic.title, topic_path(@blog.topic) %></span>
   </p>
-  <%= @blog.body %>
+  <%= @blog.body.html_safe %>
   <%= render 'comments/form'%>
   <%= render @blog.comments %>
 
