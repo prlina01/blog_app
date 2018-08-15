@@ -1,0 +1,18 @@
+
+<div class="containter text-center " style="margin-top: 250px;">
+  <div class="row">
+    <div class="col-md-12">
+      <%= @user.first_name %> <%= @user.last_name %>
+    </div>
+  </div>
+  <% if @user.avatar %>
+  <div class="row">
+    <div class="col-md-12 ">
+      <%= image_tag @user.avatar, size: '550x400'%>
+    </div>
+  </div>
+  <% end %>
+
+  <%= @user.email %>
+  <p><%= link_to "Back", blogs_path %></p>
+</div>

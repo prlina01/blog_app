@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       ## Rememberable
       t.datetime :remember_created_at
-
+      
       ## Dodavanje imena
       t.string :first_name
       t.string :last_name
