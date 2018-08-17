@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
 
+  layout 'blog'
   def new
     @contact = Contact.new
   end

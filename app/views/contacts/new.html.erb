@@ -1,23 +1,28 @@
 <h1>New Contact</h1>
 <%= form_for @contact, url: {action: "create"} do |f| %>
+  <%= @contact.errors.full_messages.join(', ') %>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <%= f.text_field :name, placeholder: 'name', class:'form-control' %>
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <%= f.email_field :email, placeholder: 'email', class:'form-control' %>
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <%= f.text_area :message, placeholder: 'message', class:'form-control' %>
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <br>
+    <div id="success"></div>
+    <div class="form-group">
+      <%= f.submit 'Send', class:'btn btn-primary' %>
+    </div>
 
-  <div>
-    <%= f.label :subject %>
-    <%= f.text_field :subject %>
-  </div>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div>
-    <%= f.label :message %>
-    <%= f.text_area :message %>
-  </div>
-  <div>
-    <%= f.submit "submit" %>
-  </div>
 <% end %>
