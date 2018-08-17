@@ -12,6 +12,7 @@ class Blog < ApplicationRecord
   belongs_to :user, required: false
 
   scope :hide_drafts, lambda { Blog.where(["status = ?", 1])}
+  # scope :subscribed_users, lambda { User.where(["subscription = ?", 1])}
 
   # before_create :set_user
 

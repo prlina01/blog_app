@@ -2,13 +2,14 @@
 <div class="containter text-center " style="margin-top: 250px;">
   <div class="row">
     <div class="col-md-12">
-      <%= @user.first_name %> <%= @user.last_name %>
+      <%= link_to "#{@user.subscribed? ? 'Unsubscribe!' : 'Subscribe!'}", toggle_subscription_user_path(@user), class: 'btn btn-primary'%>
+      <p><%= @user.first_name %> <%= @user.last_name %></p>
     </div>
   </div>
   <% if @user.avatar %>
   <div class="row">
     <div class="col-md-12 ">
-      <%= image_tag @user.avatar, size: '550x400'%>
+      <!-- <%#= image_tag @user.avatar, size: '550x400'%> -->
     </div>
   </div>
   <% end %>

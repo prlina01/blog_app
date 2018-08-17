@@ -6,22 +6,26 @@ class User < ApplicationRecord
   ## The multiple option can be set to true if you need users to have multiple roles.       ##
   petergate(roles: [:admin, :reader], multiple: false)                                      ##
   ############################################################################################ 
- 
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  before_create :default_role
+  has_one_attached :avatar
+  enum subscription: {unsubscribed: 0, subscribed: 1}
+
+
   has_many :blogs
   has_many :comments
-  before_create :default_role
   validates :first_name, presence: true
 
-  has_one_attached :avatar
+  
 
   def default_role
     self.roles = 'reader'
   end
+
 end
 

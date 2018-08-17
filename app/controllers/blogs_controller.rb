@@ -11,6 +11,7 @@
     @head_title = "Prlina's Blog"
     @head_subtitle = "Petar's very own personal blog!"
     @masthead_picture = "bg_index"
+    @subscribed_users = User.where(["subscription = ?", 1])
   end
 
   def show
@@ -66,6 +67,8 @@
       @blog.draft!
     elsif @blog.draft?
       @blog.published!
+       @subscribed_users = User.where(["subscription = ?", 1])
+      PublishedBlogMailer.published_blog_info(@subscribed_users, @blog).deliver_now
     end
     redirect_to blogs_path
   end
