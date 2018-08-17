@@ -67,7 +67,7 @@
       @blog.draft!
     elsif @blog.draft?
       @blog.published!
-       @subscribed_users = User.where(["subscription = ?", 1])
+      @subscribed_users = User.where(["subscription = ?", 1])
       PublishedBlogMailer.published_blog_info(@subscribed_users, @blog).deliver_now
     end
     redirect_to blogs_path
